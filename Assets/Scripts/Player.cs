@@ -25,6 +25,10 @@ public class Player : MonoBehaviour
     public float updateDeltaHP;
     public float updateDeltaAP;
 
+    //Bars
+    private PlayerBar playerBar;
+
+
     // Recovery by time
     void RecoverHP()
       {
@@ -54,6 +58,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
         {
+        playerBar.setSize(0.4f, 1);
             updateDeltaHP = 0;
             updateDeltaHP = 0;
             currentHP = 1;
