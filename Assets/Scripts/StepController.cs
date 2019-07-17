@@ -5,6 +5,7 @@ public class StepController : MonoBehaviour
 {
     public Transform character01_0;
     public int currentAP;
+    public int Weight;
     private Player player;
     public float xStep = 0.5f;
     public float yStep = 0.3f;
@@ -15,6 +16,7 @@ public class StepController : MonoBehaviour
     {
         player = gameObject.GetComponent<Player>();
         currentAP = player.currentAP;
+        Weight = player.Weight;
     }
 
         //Making one move after one key pressed
@@ -28,28 +30,28 @@ public class StepController : MonoBehaviour
             {
                 float transV = 0;
                 float transH = xStep;
-                player.currentAP --;
+                player.currentAP = player.currentAP - player.Weight;
                 transform.Translate(new Vector3(transH, transV, 0));
             }
             if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") < 0)
             {
                 float transV = 0;
                 float transH = -xStep;
-                player.currentAP --;
+                player.currentAP = player.currentAP - player.Weight;
                 transform.Translate(new Vector3(transH, transV, 0));
             }
             if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") < 0)
             {
                 float transV = -yStep;
                 float transH = 0;
-                player.currentAP --;
+                player.currentAP = player.currentAP - player.Weight;
                 transform.Translate(new Vector3(transH, transV, 0));
             }
             if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") > 0)
             {
                 float transV = yStep;
                 float transH = 0;
-                player.currentAP --;
+                player.currentAP = player.currentAP - player.Weight;
                 transform.Translate(new Vector3(transH, transV, 0));
             }
         }
