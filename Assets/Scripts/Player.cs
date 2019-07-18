@@ -86,7 +86,8 @@ public class Player : MonoBehaviour
         {
            RecoverHP();
            RecoverAP();
-           Debug.Log(currentHP.ToString() + " is " + scaleHP.ToString() + " HP / " + currentAP.ToString() + " AP");
-        Debug.Log(transform.position.x.ToString() + " / " + transform.position.y.ToString() + " / " + transform.position.z.ToString());
-    }
+        Debug.Log("player HP " + currentHP.ToString() + " is " + (scaleHP*100).ToString() + " % of " + maximumHP.ToString() + " HP");
+        Debug.Log("player AP " + currentAP.ToString() + " is " + (scaleAP * 100).ToString() + " % of " + maximumAP.ToString() + " AP");
+        Debug.Log("player position " + transform.position.x.ToString() + " / " + transform.position.y.ToString() + " / " + transform.position.z.ToString());
+         }
 }
