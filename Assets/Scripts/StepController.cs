@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 public class StepController : MonoBehaviour
 {
-    public Transform character01_0;
+    public Transform Player01_0;
     public int currentAP;
     public int Weight;
     private Player player;
-    public float xStep = 0.5f;
-    public float yStep = 0.3f;
+    public float xStep = 2f;
+    public float yStep = 2f;
     public float transH = 0f;
     public float transV = 0f;
 
