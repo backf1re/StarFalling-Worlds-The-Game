@@ -9,9 +9,11 @@ public class Player : MonoBehaviour
     public int Rebirth { get; set; } // Current Rebirth
     public int Level { get; set; } // Current Level
     public int currentHP { get; set; } // Current Hit Points
-    public int maximumHP { get; set; } // Maximum Hit Points
+    public float maximumHP { get; set; } // Maximum Hit Points
+    public static float scaleHP { get; set; } // % HP
     public int currentAP { get; set; } // Current Action Points
-    public int maximumAP { get; set; } // Maximum Action Points
+    public float maximumAP { get; set; } // Maximum Action Points
+    public static float scaleAP { get; set; } // % AP
     public int currentQP { get; set; } // Current Quest Points
     public int currentEP { get; set; } // Current Experience Points
     public int baseHPrecoverSpeed { get; set; } // Base Hit Points recovery speed
@@ -26,7 +28,7 @@ public class Player : MonoBehaviour
     public float updateDeltaAP;
 
     //Bars
-    private PlayerBar playerBar;
+   // [SerializeField] private PlayerBar playerBarHP;
 
 
     // Recovery by time
@@ -37,10 +39,11 @@ public class Player : MonoBehaviour
               updateDeltaHP += Time.deltaTime;
               if (updateDeltaHP >= 1f)
               {
-                  updateDeltaHP = 0;
-                  currentHP = currentHP + baseHPrecoverSpeed + restHPrecoverSpeed + sleepHPrecoverSpeed;
+                updateDeltaHP = 0;
+                currentHP = currentHP + baseHPrecoverSpeed + restHPrecoverSpeed + sleepHPrecoverSpeed;
               }
-          }
+            scaleHP = currentHP / maximumHP;
+        }
       }
       void RecoverAP()
       {
@@ -52,13 +55,13 @@ public class Player : MonoBehaviour
                   updateDeltaAP = 0;
                   currentAP = currentAP + baseAPrecoverSpeed + restHPrecoverSpeed + sleepHPrecoverSpeed;
               }
-          }
+            scaleAP = currentAP / maximumAP;
+        }
       }
      
     // Start is called before the first frame update
     void Start()
         {
-        playerBar.setSize(0.4f, 1);
             updateDeltaHP = 0;
             updateDeltaHP = 0;
             currentHP = 1;
@@ -83,6 +86,6 @@ public class Player : MonoBehaviour
         {
            RecoverHP();
            RecoverAP();
-        Debug.Log(currentHP.ToString() + " HP" + " / " + currentAP.ToString() + " AP");
+           Debug.Log(currentHP.ToString() + " is " + scaleHP.ToString() + " HP / " + currentAP.ToString() + " AP");
     }
 }
