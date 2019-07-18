@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MainViewCam : MonoBehaviour
 {
+    
     public Transform mwcTarget;
-    int distance = -10;
-    float lift = 1.5f;
+   int distance = -10;
+   float lift = 0;
 
 
     // Update is called once per frame
@@ -17,5 +18,4 @@ public class MainViewCam : MonoBehaviour
         
 
     }
-
 }
